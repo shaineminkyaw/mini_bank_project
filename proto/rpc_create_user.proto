@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package pb;
+
+import "user.proto";
+
+option go_package = "miniproject/pb";
+
+
+message CreateUserRequest {
+    string email = 1;
+    string password = 2;
+    string verifycode = 3;
+    string nation_id = 4;
+    int32 type  =5;
+    string city = 6;
+}
+
+message CreateUserResponse {
+    User user = 1;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pb;
+
+import "user.proto";
+
+option go_package = "miniproject/pb";
+
+
+
+message LoginUserRequest {
+    string email =1;
+    string password =2;
+}
+
+message LoginUserResponse {
+    User user =1;
+    string access_toke = 2;
+}

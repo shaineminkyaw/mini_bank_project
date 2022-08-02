@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pb;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "miniproject/pb";
+
+message User {
+    //
+    string email =1;
+    string bankCard =2;
+    double balance =3;
+    google.protobuf.Timestamp created_at = 4;
+    
+
+}

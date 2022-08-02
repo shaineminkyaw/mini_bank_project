@@ -23,7 +23,7 @@ type userController struct {
 	Public  *rsa.PublicKey
 }
 
-func newUserController(h *Handler) *userController {
+func NewUserController(h *Handler) *userController {
 	return &userController{
 		H:       h,
 		Private: config.PrivateKey,

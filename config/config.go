@@ -23,9 +23,15 @@ type app struct {
 	Port string
 }
 
+type grpc struct {
+	Host string
+	Port string
+}
+
 var (
 	Mysql      mysqlDB
 	App        app
+	GRPC       grpc
 	PrivateKey *rsa.PrivateKey
 	PublicKey  *rsa.PublicKey
 	SecretKey  string
@@ -50,6 +56,11 @@ func init() {
 	app := iniFile.Section("app")
 	App.Host = app.Key("Host").String()
 	App.Port = app.Key("Port").String()
+
+	//grpc config
+	grpc := iniFile.Section("grpc")
+	GRPC.Host = grpc.Key("Host").String()
+	GRPC.Port = grpc.Key("Port").String()
 
 	//mysql
 	mysql := iniFile.Section("mysql")

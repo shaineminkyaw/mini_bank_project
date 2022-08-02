@@ -10,12 +10,12 @@ type ResObj struct {
 // req verifycode
 
 type ReqVerifyCode struct {
-	Email string `json:"email" form:"email" binding:"required"`
+	Email string `json:"email" form:"email" binding:"required,email"`
 }
 
 //register request
 type ReqUserRegister struct {
-	Email      string `json:"email" form:"email" binding:"required"`
+	Email      string `json:"email" form:"email" binding:"required,email"`
 	Password   string `json:"password" form:"password" binding:"required,min=6"`
 	VerifyCode string `json:"verify_code" form:"verify_code" binding:"required"`
 	NationID   string `json:"nation_id" form:"nation_id" binding:"required"`
@@ -25,6 +25,6 @@ type ReqUserRegister struct {
 
 //login request
 type ReqLogin struct {
-	Email    string `json:"email" form:"email" binding:"required"`
+	Email    string `json:"email" form:"email" binding:"required,email"`
 	Password string `json:"password" form:"password" binding:"required,min=6"`
 }

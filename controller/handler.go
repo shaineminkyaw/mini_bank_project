@@ -52,7 +52,7 @@ func NewHandler(r *HConfig) *Handler {
 	}
 
 	//user controller
-	userController := newUserController(h)
+	userController := NewUserController(h)
 	userController.Register()
 
 	//user money
