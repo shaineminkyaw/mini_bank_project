@@ -21,7 +21,8 @@ type HConfig struct {
 	TokenService service.UserTokenService
 }
 
-func Inject(router *gin.Engine) *Handler {
+func Inject() *Handler {
+	router := gin.Default()
 	db := ds.DB
 
 	userRepo := repository.NewUserRepository(db)

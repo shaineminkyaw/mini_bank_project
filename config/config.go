@@ -8,6 +8,7 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"gopkg.in/ini.v1"
+	"gorm.io/gorm"
 )
 
 type mysqlDB struct {
@@ -24,11 +25,11 @@ type app struct {
 }
 
 type grpc struct {
-	Host string
-	Port string
+	GRPCAddress string
 }
 
 var (
+	DB         *gorm.DB
 	Mysql      mysqlDB
 	App        app
 	GRPC       grpc
@@ -59,8 +60,9 @@ func init() {
 
 	//grpc config
 	grpc := iniFile.Section("grpc")
-	GRPC.Host = grpc.Key("Host").String()
-	GRPC.Port = grpc.Key("Port").String()
+	GRPC.GRPCAddress = grpc.Key("GRPCAddress").String()
+	// GRPC.Host = grpc.Key("Host").String()
+	// GRPC.Port = grpc.Key("Port").String()
 
 	//mysql
 	mysql := iniFile.Section("mysql")
@@ -97,4 +99,5 @@ func init() {
 
 	//Secret Key
 	SecretKey = rsa.Key("Secret_Key").String()
+
 }

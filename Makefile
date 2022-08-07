@@ -6,4 +6,7 @@ proto:
 server:
 	go run main.go
 
-.PHONY: proto server
+evans:
+	evans --host localhost --port 9095 -r repl
+
+.PHONY: proto server evans

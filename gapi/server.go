@@ -1,7 +1,6 @@
 package gapi
 
 import (
-	"fmt"
 	"log"
 	"miniproject/config"
 	"miniproject/controller"
@@ -9,20 +8,22 @@ import (
 	"miniproject/pb"
 	"miniproject/repository"
 	"miniproject/service"
+	"net"
 
-	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
+	"gorm.io/gorm"
 )
 
 //
 
 type Server struct {
 	pb.UnimplementedSimpleBankServer
-	H *controller.Handler
+	H    *controller.Handler
+	Data *gorm.DB
 }
 
-func NewgRPC(router *gin.Engine) (*Server, error) {
+func NewgRPC() (*Server, error) {
 
 	db := ds.DB
 	userRepo := repository.NewUserRepository(db)
@@ -37,48 +38,40 @@ func NewgRPC(router *gin.Engine) (*Server, error) {
 		Public:     config.PublicKey,
 	})
 	hConfig := &controller.HConfig{
-		Router:       router,
 		UserService:  userService,
 		TokenService: tokenService,
 	}
-	h := NewHandler1(hConfig)
 	return &Server{
-		H: h,
+		H:    (*controller.Handler)(hConfig),
+		Data: db,
 	}, nil
+	// h := NewHandler1(hConfig)
+	// return &Server{
+	// 	H: h,
+	// }, nil
 
-}
-
-func NewHandler1(r *controller.HConfig) *controller.Handler {
-	h := &controller.Handler{
-		Router:       r.Router,
-		UserService:  r.UserService,
-		TokenService: r.TokenService,
-	}
-
-	//user controller
-	userController := controller.NewUserController(h)
-	userController.Register()
-
-	//user money
-	transferMoney := controller.NewTransferMoney(h)
-	transferMoney.Register()
-
-	return h
 }
 
 func RunGRPCServer() {
 	//
-	router := gin.Default()
-	router.SetTrustedProxies([]string{"192.168.10.199"})
-	host := "localhost"
-	gRPCServer := grpc.NewServer()
-	server, err := NewgRPC(router)
+	server, err := NewgRPC()
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
+	gRPCServer := grpc.NewServer()
 	pb.RegisterSimpleBankServer(gRPCServer, server)
 	reflection.Register(gRPCServer)
 
-	starter := fmt.Sprintf("%v:%v", host, config.GRPC.Port)
-	router.Run(starter)
+	lis, err := net.Listen("tcp", config.GRPC.GRPCAddress)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+
+	log.Printf("started gRPC server ...%v", config.GRPC.GRPCAddress)
+
+	err = gRPCServer.Serve(lis)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+
 }

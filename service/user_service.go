@@ -1,6 +1,7 @@
 package service
 
 import (
+	"miniproject/ds"
 	"miniproject/model"
 	"miniproject/repository"
 )
@@ -11,6 +12,7 @@ type UserService interface {
 	FindById(id uint64) (*model.User, error)
 	GetVerifyUser(email string) (*model.VerifyCode, error)
 	FindByEmail(email string) (*model.User, error)
+	CreateUser(user *model.User) error
 }
 
 type userService struct {
@@ -28,6 +30,13 @@ func NewUserService(us *UsConfig) UserService {
 	}
 }
 
+func (ur *userService) CreateUser(user *model.User) error {
+	err := ds.DB.Model(&model.User{}).Create(&user).Error
+	if err != nil {
+		return err
+	}
+	return nil
+}
 func (us *userService) FindAll(filter interface{}) ([]*model.User, error) {
 	users, err := us.UserRepository.FindAll(filter)
 	if err != nil {

@@ -12,6 +12,7 @@ type UserRepository interface {
 	FindById(id uint64) (*model.User, error)
 	GetVerifyUser(email string) (*model.VerifyCode, error)
 	FindByEmail(email string) (*model.User, error)
+	CreateUser(user *model.User) error
 }
 
 type userRepository struct {
@@ -32,6 +33,13 @@ func (ur *userRepository) FindAll(filter interface{}) ([]*model.User, error) {
 		return nil, err
 	}
 	return users, nil
+}
+func (ur *userRepository) CreateUser(user *model.User) error {
+	err := ur.DB.Model(&model.User{}).Create(&user).Error
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func (ur *userRepository) FindById(id uint64) (*model.User, error) {

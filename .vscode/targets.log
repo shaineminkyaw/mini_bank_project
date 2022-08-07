@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug  2 17:37:56 2022
+# Make data base, printed on Sun Aug  7 10:33:59 2022
 
 # Variables
 
@@ -43,7 +43,7 @@ GOPATH = /home/shaine/go
 # environment
 SNAP_INSTANCE_NAME = code
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/102/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/103/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -63,23 +63,23 @@ http_proxy = http://192.168.10.199:7890/
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/shaine/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
+VSCODE_CODE_CACHE_PATH = /home/shaine/.config/Code/CachedData/da76f93349a72022ca4670c1b84860304616aaa2
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.CTTFQ1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.FV19P1
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.417
+GNOME_TERMINAL_SERVICE = :1.106
 # makefile
 MAKEFLAGS = pqrR
 # makefile
 CURDIR := /home/shaine/Desktop/loukkai Desktop/Golang Data/project_bank/miniProject
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
@@ -105,7 +105,7 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 105238
+VSCODE_PID = 3388
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -113,7 +113,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 HTTPS_PROXY = http://192.168.10.199:7890/
 # environment
-SESSION_MANAGER = local/shaine-pc:@/tmp/.ICE-unix/1747,unix/shaine-pc:/tmp/.ICE-unix/1747
+SESSION_MANAGER = local/shaine-pc:@/tmp/.ICE-unix/1760,unix/shaine-pc:/tmp/.ICE-unix/1760
 # automatic
 *F = $(notdir $*)
 # environment
@@ -141,7 +141,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/e07dbf75_f12e_43df_86bd_b8cacd7a45c8
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/5d7ecdf3_7018_4135_90b6_aa576307e363
 # environment
 MAKELEVEL := 0
 # default
@@ -161,9 +161,9 @@ SNAP_USER_COMMON = /home/shaine/snap/code/common
 # environment
 LC_TIME = my_MM
 # environment
-SNAP = /snap/code/102
+SNAP = /snap/code/103
 # environment
-SNAP_REVISION = 102
+SNAP_REVISION = 103
 # environment
 SNAP_REAL_HOME = /home/shaine
 # environment
@@ -197,7 +197,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := proto
 # environment
-SYSTEMD_EXEC_PID = 1986
+SYSTEMD_EXEC_PID = 1996
 # environment
 DISPLAY = :0
 # environment
@@ -209,7 +209,7 @@ MAKE_VERSION := 4.3
 # environment
 DISABLE_WAYLAND = 1
 # environment
-SNAP_DATA = /var/snap/code/102
+SNAP_DATA = /var/snap/code/103
 # environment
 SNAP_CONTEXT = a2BtyHfObI-xSTmWz_DssHEwQ4SEG3M7N-9WL9n9Ikud3wf4Z6Ck
 # environment
@@ -239,13 +239,13 @@ QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-04eabc3d-1.69.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-04eabc3d-1.70.0-main.sock
 # environment
 TERM = xterm-256color
 # environment
 SNAP_NAME = code
 # environment
-GSETTINGS_SCHEMA_DIR = /snap/code/102/usr/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /snap/code/103/usr/share/glib-2.0/schemas
 # environment
 IM_CONFIG_PHASE = 1
 # environment
@@ -255,7 +255,7 @@ GOPROXY = https://proxy.golang.org,direct
 # automatic
 <F = $(notdir $<)
 # environment
-SNAP_VERSION = 3b889b09
+SNAP_VERSION = da76f933
 # default
 SUFFIXES := 
 # environment
@@ -271,7 +271,7 @@ SNAP_COMMON = /var/snap/code/common
 # environment
 https_proxy = http://192.168.10.199:7890/
 # environment
-SNAP_USER_DATA = /home/shaine/snap/code/102
+SNAP_USER_DATA = /home/shaine/snap/code/103
 # environment
 ALL_PROXY = socks://192.168.10.199:7890/
 # environment
@@ -360,6 +360,6 @@ all:
 # strcache performance: lookups = 37 / hit rate = 27%
 # hash-table stats:
 # Load=27/8192=0%, Rehash=0, Collisions=0/37=0%
-# Finished Make data base on Tue Aug  2 17:37:56 2022
+# Finished Make data base on Sun Aug  7 10:33:59 2022
 
  
